@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+venv/
+env/
+
+# Data Files (Too large for GitHub)
+data/*.csv
+data/*.hdf5
+data/*.json
+
+# LaTeX Intermediate Files
+paper/*.aux
+paper/*.log
+paper/*.out
+paper/*.toc
+paper/*.synctex.gz
+
+# IDE settings
+.vscode/
+.idea/
