@@ -1,9 +1,13 @@
 # Dynamic Relativity (DR)
 **A Covariant Theory of Motion-Dependent Metric Scaling**
 
+[ DOI: 10.5281/zenodo.18325668 ]
+
+https://doi.org/10.5281/zenodo.18325668
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Status: Research](https://img.shields.io/badge/Status-Academic_Preprint-blue.svg)](./paper/)
-[![Python](https://img.shields.io/badge/Python-3.9%2B-green)](https://www.python.org/)
+[![Python](https://img.shields.io/badge/Python-3.14.2%2B-green)](https://www.python.org/)
 
 ## 🌌 Overview
 **Dynamic Relativity (DR)** is a proposed extension of General Relativity that abandons the "Rigid Measure Hypothesis." It posits that the stiffness of the spacetime metric is not a universal constant ($c^4/8\pi G$), but a dynamic variable governed by the **Total Stress Invariant** of the potential gradient.
