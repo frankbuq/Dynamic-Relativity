@@ -37,23 +37,3 @@ This repository contains the **verification suite** for the theory, including th
 * **The Mechanism:** At the cosmological horizon ($v > c$), the gradient norm becomes imaginary due to the Lorentzian signature. This inverts the metric coupling, turning gravity into repulsion.
 * **The Result:** "Dark Energy" is identified as the repulsive back-reaction of the superluminal Hubble horizon, solving the Fine Tuning problem.
 
-## 📂 Repository Structure
-
-```text
-Dynamic-Relativity/
-├── paper/                  # The complete LaTeX manuscript (v15.0)
-│   └── dynamic_relativity.tex
-│
-├── src/                    # Python Verification Suite
-│   ├── analyze_gaia_binary.py       # Gaia DR3 data analysis
-│   ├── ligo_residual_analysis.py    # GW150914 Ringdown analysis
-│   ├── verify_flyby_anomaly.py      # Galileo I Flyby integration
-│   ├── compare_potentials.py        # Theoretical saturation curves
-│   ├── verify_lensing_temperature.py# Entropy-Lensing correlation
-│   ├── simulate_metric_wake.py      # 1D Wave Equation (Bullet Cluster)
-│   └── plot_milkyway_curve.py       # Milky Way BTFR plotting
-│
-├── data/                   # Data directory (CSVs not included in repo)
-│   └── README.txt          # Instructions for downloading Gaia/LIGO data
-│
-└── plots/                  # Generated figures appear here
