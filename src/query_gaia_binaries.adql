@@ -1,0 +1,56 @@
+SELECT 
+    -- Star A Info
+    a.source_id AS source_id_a,
+    a.ra AS ra_a, a.dec AS dec_a,
+    a.parallax AS plx_a, a.pmra AS pmra_a, a.pmdec AS pmdec_a,
+    a.radial_velocity AS rv_a,
+    a.phot_g_mean_mag AS g_mag_a,
+    a.bp_rp AS color_a,
+
+    -- Star B Info
+    b.source_id AS source_id_b,
+    b.ra AS ra_b, b.dec AS dec_b,
+    b.parallax AS plx_b, b.pmra AS pmra_b, b.pmdec AS pmdec_b,
+    b.radial_velocity AS rv_b,
+    b.phot_g_mean_mag AS g_mag_b,
+    b.bp_rp AS color_b,
+
+    -- Calculated Separation (approximate in arcsec)
+    DISTANCE(POINT('ICRS', a.ra, a.dec), POINT('ICRS', b.ra, b.dec)) AS sep_deg
+
+FROM gaiadr3.gaia_source AS a
+JOIN gaiadr3.gaia_source AS b 
+    ON 1=1 -- Geometry filter is applied in WHERE to optimize
+
+WHERE 
+    -- 1. PRE-FILTER: High Quality Red Dwarfs (Star A)
+    a.parallax >= 10                       -- Distance < 100 pc
+    AND a.parallax_over_error > 20         -- High precision
+    AND a.ruwe < 1.4                       -- Clean single star solution
+    AND a.bp_rp > 1.5                      -- Red Color
+    AND a.phot_g_mean_mag + 5 * LOG10(a.parallax/100) > 4 -- Main sequence cut
+
+    -- 2. PRE-FILTER: High Quality Red Dwarfs (Star B)
+    AND b.parallax >= 10
+    AND b.parallax_over_error > 20
+    AND b.ruwe < 1.4
+    AND b.bp_rp > 1.5
+    AND b.phot_g_mean_mag + 5 * LOG10(b.parallax/100) > 4
+
+    -- 3. REMOVE DUPLICATES & SELF-MATCHES
+    AND a.source_id < b.source_id
+
+    -- 4. SPATIAL FILTER: Cone Search (approx 1 degree max separation)
+    AND CONTAINS(POINT('ICRS', a.ra, a.dec), CIRCLE('ICRS', b.ra, b.dec, 0.5)) = 1
+
+    -- 5. PHYSICAL BINDING CHECKS (The "Sniper" Logic)
+    
+    -- A. Separation Limit (50,000 AU at 100pc is ~0.14 deg, we allow buffer)
+    AND DISTANCE(POINT('ICRS', a.ra, a.dec), POINT('ICRS', b.ra, b.dec)) * 3600 * (1000/a.parallax) < 50000
+
+    -- B. Parallax Consistency (Must be at same distance within errors)
+    AND ABS(a.parallax - b.parallax) < 2.0 * SQRT(POWER(a.parallax_error,2) + POWER(b.parallax_error,2))
+
+    -- C. Proper Motion Consistency (Must move together)
+    -- We allow a small difference due to orbital motion, but filter out random flybys
+    AND SQRT(POWER(a.pmra - b.pmra, 2) + POWER(a.pmdec - b.pmdec, 2)) < 5.0
