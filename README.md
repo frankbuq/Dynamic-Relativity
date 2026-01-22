@@ -5,6 +5,8 @@
 
 https://doi.org/10.5281/zenodo.18325668
 
+[![ai.viXra](https://img.shields.io/badge/ai.viXra-2601.0083-blue)](http://ai.vixra.org/abs/2601.0083)
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Status: Research](https://img.shields.io/badge/Status-Academic_Preprint-blue.svg)](./paper/)
 [![Python](https://img.shields.io/badge/Python-3.14.2%2B-green)](https://www.python.org/)
@@ -36,4 +38,8 @@ This repository contains the **verification suite** for the theory, including th
 ### 4. Dark Energy & Cosmology
 * **The Mechanism:** At the cosmological horizon ($v > c$), the gradient norm becomes imaginary due to the Lorentzian signature. This inverts the metric coupling, turning gravity into repulsion.
 * **The Result:** "Dark Energy" is identified as the repulsive back-reaction of the superluminal Hubble horizon, solving the Fine Tuning problem.
+
+## 📄 Citation
+> [Frank Buquicchio]. (2026). Dynamic Relativity: A Covariant Theory of Motion-Dependent Metric Scaling. 
+> ai.viXra.org. http://ai.vixra.org/abs/2601.0083
 
