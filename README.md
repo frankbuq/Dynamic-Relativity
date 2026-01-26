@@ -1,45 +1,63 @@
 # Dynamic Relativity (DR)
-**A Covariant Theory of Motion-Dependent Metric Scaling**
+**A Geometric Framework for Variable-Permittivity Spacetime**
 
-[ DOI: 10.5281/zenodo.18325668 ]
+> **Principal Investigator:** Frank Buquicchio
+> **Co-Author:** Gemini (AI Model)
+> **Affiliation:** Independent Research
 
-https://doi.org/10.5281/zenodo.18325668
-
-[![ai.viXra](https://img.shields.io/badge/ai.viXra-2601.0083-blue)](http://ai.vixra.org/abs/2601.0083)
-
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Status: Research](https://img.shields.io/badge/Status-Academic_Preprint-blue.svg)](./paper/)
-[![Python](https://img.shields.io/badge/Python-3.14.2%2B-green)](https://www.python.org/)
+---
 
 ## 🌌 Overview
-**Dynamic Relativity (DR)** is a proposed extension of General Relativity that abandons the "Rigid Measure Hypothesis." It posits that the stiffness of the spacetime metric is not a universal constant ($c^4/8\pi G$), but a dynamic variable governed by the **Total Stress Invariant** of the potential gradient.
+**Dynamic Relativity** is a theoretical generalization of Einstein's General Relativity. It challenges the standard assumption that the vacuum possesses a static, universal "stiffness" (defined by the constant $\kappa$).
 
-By introducing a scalar field $\mu$ that saturates in high-stress environments and relaxes in low-stress environments, DR unifies the phenomenology of the "Dark Sector" with local anomalies in a single, parameter-free geometric framework.
+Instead, this framework models the vacuum as a **Polarizable Dielectric Manifold**. It introduces a scalar field—**Gravitational Permittivity ($\mu$)**—which determines the local capacity of spacetime to curve. This simple relaxation of constraints leads to a rich new geometry that predicts:
+* **Vacuum Wakes:** Time-dependent asymmetries in gravity for moving objects.
+* **Singularity Resolution:** A "saturation" mechanism that replaces black hole singularities with finite-density cores.
+* **Geometric "Fifth Forces":** Attraction mechanisms driven by permittivity gradients ($\nabla \mu$).
 
-This repository contains the **verification suite** for the theory, including the Python scripts used to analyze Gaia DR3 data, simulate Retarded Potentials, and verify the Earth Flyby Anomaly.
+## 📄 Repository Contents
 
-## 🔑 Key Results & Verification
+### **Paper I: The Geometric Formalism**
+* **Status:** *Complete / Ready for Review*
+* **Description:** The foundational document. It derives the Dynamic Field Equations from the Action Principle and establishes the differential geometry of a "dielectric" vacuum.
+* **Key Contributions:**
+    * Derivation of the Vacuum Stress Tensor $\Theta_{\mu\nu}$.
+    * The "Permittivity Saturation" limit for $R \to \infty$.
+    * Comparison of Affine Connections (Levi-Civita vs. Polarized).
+    * Critical analysis of Solar System constraints (Cassini) and the Equivalence Principle.
 
-### 1. The Red Dwarf Saturation Horizon (Gaia DR3)
-* **The Prediction:** The transition from Newtonian to Galactic dynamics depends on the central mass ($r_{sat} \propto \sqrt{M}$). For Red Dwarf binaries ($0.8 M_{\odot}$), this horizon should shift inward to **2,500 AU** (vs. 4,000 AU for the Sun).
-* **The Result:** A "Sniper Analysis" of 6,832 wide binaries in Gaia DR3 reveals a decisive departure from Newtonian dynamics beginning exactly in the **1,709–2,576 AU** bin.
-* *See `src/analyze_gaia_binary.py`*
+### **Paper II: Rotational Vacuum Polarization**
+* **Status:** *In Progress*
+* **Description:** Application of the theory to the Solar System. Proposes that the Sun's rotation creates a "High-Permittivity Trench" along the equator, geometrically confining the planets to the orbital plane.
 
-### 2. Strong-Field Vacuum Relaxation (LIGO)
-* **The Prediction:** In the ringdown phase of a black hole merger, as the wave amplitude decays below the critical acceleration $a_0$, the local vacuum "relaxes," causing the damping time to increase ($\tau \to \tau(t)$).
-* **The Result:** A residual analysis of **GW150914** reveals a positive relaxation parameter of $\alpha = +0.12$, reducing the residual error by **9.2%** compared to standard GR and eliminating systematic autocorrelation.
-* *See `src/ligo_residual_analysis.py`*
+## 🛠 Usage
+This repository contains the LaTeX source code for the theoretical papers.
 
-### 3. The Earth Flyby Anomaly
-* **The Prediction:** Spacecraft flybys exhibit a velocity boost due to the "Conformal Asymmetry" between the saturated bow shock (ingress) and the relaxed wake (egress).
-* **The Result:** Integrating the conformal gradient along the Galileo I trajectory yields a predicted $\Delta V$ of **3.78 mm/s** (Observed: $3.92 \pm 0.3$ mm/s).
-* *See `src/verify_flyby_anomaly.py`*
+### **Compiling Paper I**
+To generate the PDF for Paper I, ensure you have a standard TeX distribution (TeX Live, MacTeX, or MikTeX).
 
-### 4. Dark Energy & Cosmology
-* **The Mechanism:** At the cosmological horizon ($v > c$), the gradient norm becomes imaginary due to the Lorentzian signature. This inverts the metric coupling, turning gravity into repulsion.
-* **The Result:** "Dark Energy" is identified as the repulsive back-reaction of the superluminal Hubble horizon, solving the Fine Tuning problem.
+1.  **Clone the repo:**
+    ```bash
+    git clone [https://github.com/](https://github.com/)[your-username]/dynamic-relativity.git
+    cd dynamic-relativity
+    ```
+2.  **Add the Assets:**
+    Ensure the following images are present in the root directory (or update the `.tex` file to point to your own images):
+    * `example_image_placeholder_GR_wake.png` (Lorentz Contraction Diagram)
+    * `example_image_placeholder_DR_wake.png` (Mach Cone/Cherenkov Diagram)
 
-## 📄 Citation
-> [Frank Buquicchio]. (2026). Dynamic Relativity: A Covariant Theory of Motion-Dependent Metric Scaling. 
-> ai.viXra.org. http://ai.vixra.org/abs/2601.0083
+3.  **Compile:**
+    ```bash
+    pdflatex paper_I_geometric_formalism.tex
+    ```
 
+## 🤖 Methodology: Human-AI Symbiosis
+This project represents a new paradigm in theoretical research.
+* **The Human Investigator** provides the intuitive leaps, the physical constraints, and the conceptual architecture (the "Spark").
+* **The AI Co-Author** provides the formal mathematical derivations, the structural organization, and the rigorous stress-testing of arguments (the "Rigour").
+
+## ⚠️ Disclaimer
+Dynamic Relativity is a **hypothetical framework**. While mathematically consistent, it is a proposal for a new geometric description of gravity and has not yet been validated by experimental observation.
+
+---
+*“Gravity is not just the shape of space; it is the density of the nothingness.”*
